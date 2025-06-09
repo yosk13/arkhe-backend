@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from '../api/axios';
 
 const emociones = [
   "dolor",
@@ -26,7 +26,7 @@ export default function NuevaEntrada() {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/entradas`, {
+      await axios.post('/entradas', {
         contenido,
         categoria,
       });
