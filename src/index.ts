@@ -1,12 +1,20 @@
-import express from 'express';
-import cors from 'cors';
-import entradasRouter from './routes/entradas'; 
+import express from "express";
+import cors from "cors";
+import entradasRouter from "./routes/entradas";
 
 const app = express();
-app.use(cors());
+
+app.use(
+  cors({
+    origin: "https://arkhe-frontend.vercel.app", // solo acepta desde el frontend productivo
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 app.use(express.json());
 
-app.use('/entradas', entradasRouter);
+app.use("/entradas", entradasRouter);
 
 const PORT = 4000;
 app.listen(PORT, () => {
