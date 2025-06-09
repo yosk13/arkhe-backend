@@ -26,7 +26,7 @@ export default function NuevaEntrada() {
     }
 
     try {
-      await axios.post("http://localhost:4000/entradas", {
+      await axios.post(`${import.meta.env.VITE_API_URL}/entradas`, {
         contenido,
         categoria,
       });
